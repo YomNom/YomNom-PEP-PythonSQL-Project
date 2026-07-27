@@ -60,6 +60,7 @@ def load_and_clean_users(file_path):
         f.readline() 
         for line in f:
             l = line.split(",")
+            print(l)
             if len(l) == 2:
                 cursor.execute(f"INSERT INTO users (firstName, lastName) VALUES ('{l[0]}', '{l[1]}')")
 
