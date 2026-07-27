@@ -41,7 +41,7 @@ def main():
     write_ordered_calls(os.path.join(_RESOURCES_DIR, 'orderedCalls.csv'))
 
     # Helper method that prints the contents of the users and callLogs tables. Uncomment to see data.
-    # select_from_users_and_call_logs()
+    elect_from_users_and_call_logs()
 
     # Close the cursor and connection. main function ends here.
     cursor.close()
@@ -55,13 +55,25 @@ def main():
 def load_and_clean_users(file_path):
 
     print("TODO: load_users")
-
+    with open(file_path, "r") as f: 
+        # Skips first line (assumed to be header names)
+        f.readline() 
+        for line in f:
+            l = line.split(",")
+            if l.length() == 2:
+                cursor.execute(f"INSERT INTO users (firstName, lastName) VALUES ('{l[0]}', '{l[1]}')")
 
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
 def load_and_clean_call_logs(file_path):
 
     print("TODO: load_call_logs")
-
+    with open(file_path, "r") as f: 
+        # Skips first line (assumed to be header names)
+        f.readline() 
+        for line in f:
+            l = line.split(",")
+            if l.length() == 5:
+                cursor.execute(f"INSERT INTO callLogs (phoneNumber, startTime, endTime, direction, userId) VALUES ('{l[0]}', {l[1]}, {l[2]}, '{l[3]}', {l[4]})")
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
 # You must save records consisting of each userId, avgDuration, and numCalls
