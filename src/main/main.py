@@ -60,7 +60,7 @@ def load_and_clean_users(file_path):
         f.readline() 
         for line in f:
             l = line.split(",")
-            if l.length() == 2:
+            if l.size() == 2:
                 cursor.execute(f"INSERT INTO users (firstName, lastName) VALUES ('{l[0]}', '{l[1]}')")
 
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
@@ -72,7 +72,7 @@ def load_and_clean_call_logs(file_path):
         f.readline() 
         for line in f:
             l = line.split(",")
-            if l.length() == 5:
+            if l.size() == 5:
                 cursor.execute(f"INSERT INTO callLogs (phoneNumber, startTime, endTime, direction, userId) VALUES ('{l[0]}', {l[1]}, {l[2]}, '{l[3]}', {l[4]})")
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
