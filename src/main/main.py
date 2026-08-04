@@ -74,10 +74,9 @@ def load_and_clean_call_logs(file_path):
         f.readline() 
         for line in f:
             l = [item.strip() for item in line.split(",")]
-            if (l[0] == '' or l[1] == '' or l[2] == '' or l[3] == '' or l[4] == ''):
-                continue
             if len(l) == 5:
-                print(l)
+                if (l[0] == '' or l[1] == '' or l[2] == '' or l[3] == '' or l[4] == ''):
+                    continue
                 cursor.execute(f"INSERT INTO callLogs (phoneNumber,startTime,endTime,direction,userId) VALUES ('{l[0]}', {l[1]}, {l[2]}, '{l[3]}', {l[4]})")
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
