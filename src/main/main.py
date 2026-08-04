@@ -62,7 +62,7 @@ def load_and_clean_users(file_path):
             l = line.split(",")
             if len(l) == 2:
                 if (l[0] == ' ' or l[1] == ' '):
-                    continue
+                    break
                 print(l)
                 cursor.execute(f"INSERT INTO users (firstName,lastName) VALUES ('{l[0]}', '{l[1]}')")
 
@@ -76,7 +76,7 @@ def load_and_clean_call_logs(file_path):
         for line in f:
             l = line.split(",")
             if (l[0] == " " or l[1] == " " or l[2] == " " or l[3] == " " or l[4] == " "):
-                continue
+                break
             if len(l) == 5:
                 print(l)
                 cursor.execute(f"INSERT INTO callLogs (phoneNumber,startTime,endTime,direction,userId) VALUES ('{l[0]}', {l[1]}, {l[2]}, '{l[3]}', {l[4]})")
