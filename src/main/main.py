@@ -60,7 +60,7 @@ def load_and_clean_users(file_path):
         f.readline() 
         for line in f:
             l = line.split(",")
-            print(l)
+            print("line: ",l)
             if len(l) == 2:
                 if (l[0] == ' ' or l[1] == ' '):
                     continue
