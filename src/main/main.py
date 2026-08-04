@@ -60,7 +60,7 @@ def load_and_clean_users(file_path):
         f.readline() 
         for line in f:
             l = line.split(",")
-            if (l[0] == "" or l[1] == ""):
+            if (l[0] == " " or l[1] == " "):
                 continue
             if len(l) == 2:
                 print(l)
@@ -75,7 +75,7 @@ def load_and_clean_call_logs(file_path):
         f.readline() 
         for line in f:
             l = line.split(",")
-            if (l[0] == "" or l[1] == "" or l[2] == "" or l[3] == "" or l[4] == ""):
+            if (l[0] == " " or l[1] == " " or l[2] == " " or l[3] == " " or l[4] == " "):
                 continue
             if len(l) == 5:
                 print(l)
