@@ -59,7 +59,8 @@ def load_and_clean_users(file_path):
         # Skips first line (assumed to be header names)
         f.readline() 
         for line in f:
-            l = line.split(",")
+            l = [item.strip() for item in line.split(",")]
+
             if len(l) == 2:
                 print("TWO: ",l[0], l[1])
                 if (l[0] == ' ' or l[1] == ' '):
