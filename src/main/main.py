@@ -79,7 +79,7 @@ def load_and_clean_call_logs(file_path):
                 continue
             if len(l) == 5:
                 print(l)
-                cursor.execute(f"INSERT INTO callLogs (phoneNumber, startTime, endTime, direction, userId) VALUES ('{l[0]}', {l[1]}, {l[2]}, '{l[3]}', {l[4]})")
+                cursor.execute(f"INSERT INTO callLogs (phoneNumber,startTime,endTime,direction,userId) VALUES ('{l[0]}', {l[1]}, {l[2]}, '{l[3]}', {l[4]})")
 
 # This function will write analytics data to testUserAnalytics.csv - average call time, and number of calls per user.
 # You must save records consisting of each userId, avgDuration, and numCalls
